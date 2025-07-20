@@ -35,8 +35,9 @@ export async function updateRiddle(req, res) {
 
 // delete by id
 export async function deleteRiddle(req, res) {
+    const id = req.params.id
   try {
-    const result = await riddlesDal.deleteRiddle(req.params.id);
+    const result = await riddlesDal.deleteRiddleD(id);
     res.json(result);
   } catch (err) {
     res.status(500).json({ error: err.message });

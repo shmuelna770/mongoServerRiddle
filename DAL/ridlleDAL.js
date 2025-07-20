@@ -40,3 +40,9 @@ export async function updateRiddle(id, riddle) {
 
   return riddle;
 }
+
+
+export async function deleteRiddleD(id) {
+  const db = await connect();
+    return await db.collection("riddles").deleteOne({_id: new ObjectId(id)})
+}
