@@ -13,3 +13,4 @@ export async function connect() {
   }
   return db;
 }
+connect();

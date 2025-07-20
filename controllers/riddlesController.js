@@ -22,12 +22,15 @@ export async function addRiddle(req, res) {
 
 // update by id
 export async function updateRiddle(req, res) {
+  console.log(req.params.id,req.body);
   try {
     const result = await riddlesDal.updateRiddle(req.params.id, req.body);
     res.json(result);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+  
+  
 }
 
 // delete by id

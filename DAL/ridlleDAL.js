@@ -22,11 +22,21 @@ export async function addRiddle(riddle) {
   return result.insertedId;
 }
 
+
 export async function updateRiddle(id, riddle) {
+  if (!ObjectId.isValid(id)) {
+    throw new Error("invalid ID");
+  }
+  // console.log('id:', id);
+  // console.log('riddle:', riddle);
+
   const collection = await getCollection();
-  return collection.updateOne(
+
+  const result = await collection.updateOne(
     { _id: new ObjectId(id) },
     { $set: riddle }
   );
-}
+  // console.log(result);
 
+  return riddle;
+}
