@@ -27,16 +27,14 @@ export async function updateRiddle(id, riddle) {
   if (!ObjectId.isValid(id)) {
     throw new Error("invalid ID");
   }
-  // console.log('id:', id);
-  // console.log('riddle:', riddle);
 
   const collection = await getCollection();
 
   const result = await collection.updateOne(
-    { _id: new ObjectId(id) },
+    { _id: ObjectId(id) },
     { $set: riddle }
   );
-  // console.log(result);
+  console.log(result);
 
   return riddle;
 }
@@ -44,5 +42,5 @@ export async function updateRiddle(id, riddle) {
 
 export async function deleteRiddleD(id) {
   const db = await connect();
-    return await db.collection("riddles").deleteOne({_id: new ObjectId(id)})
+    return await db.collection("riddles").deleteOne({_id: ObjectId(id)})
 }
