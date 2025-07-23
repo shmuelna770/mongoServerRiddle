@@ -1,13 +1,14 @@
 import { supabase } from "../DB/supabase.js";
 
-export async function addPlayer(player) {
+export async function addPlayerD(player) {
     const { data, error } = await supabase
         .from('players')
-        .insert([player]);
+        .insert([player])
+        .select()
 
     if (error) {
         throw new Error(error.message);
     }
 
-    return data[0]; 
+    return data; 
 }
