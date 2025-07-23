@@ -1,4 +1,4 @@
-import playerDal from '../DAL/playerDAL.js'
+import * as playerDal from '../DAL/playerDAL.js'
 
 export async function addPlayer(req, res) {
     try {
@@ -7,6 +7,6 @@ export async function addPlayer(req, res) {
         res.json(newPlayer)
     }
     catch (error) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
     }
 }
