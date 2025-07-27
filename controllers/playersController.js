@@ -10,3 +10,12 @@ export async function addPlayer(req, res) {
         res.status(500).json({ error: error.message })
     }
 }
+export async function getPlayer(req,res){
+    try{
+        const username = req.params.username
+        const player = await playerDal.selectPlayerByUsername(username)
+        res.json(player)
+    }catch(error){
+        res.status(500).json({error:error.message})
+    }
+}

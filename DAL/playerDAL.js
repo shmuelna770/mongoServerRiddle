@@ -10,5 +10,14 @@ export async function addPlayerD(player) {
         throw new Error(error.message);
     }
 
-    return data; 
+    return data;
+}
+export async function selectPlayerByUsername(username) {
+    const { data, error } = await supabase
+        .from('players')
+        .select()
+        .eq('username', username)
+        .single()
+    if (error) throw new error(error.message)
+    return data;
 }
