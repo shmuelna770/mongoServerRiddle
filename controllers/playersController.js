@@ -4,6 +4,8 @@ export async function addPlayer(req, res) {
     try {
         const player = req.body
         const newPlayer = await playerDal.addPlayerD(player)
+        console.log(player,newPlayer);
+        
         res.json(newPlayer)
     }
     catch (error) {
@@ -18,4 +20,4 @@ export async function getPlayer(req,res){
     }catch(error){
         res.status(500).json({error:error.message})
     }
-}
+}   
