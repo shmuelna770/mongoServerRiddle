@@ -37,10 +37,14 @@ export async function updateRiddle(req, res) {
 export async function deleteRiddle(req, res) {
     const id = req.params.id
   try {
+    // console.log("check");
+    // console.log(id);
+    
     const result = await riddlesDal.deleteRiddleD(id);
-    res.json(result);
+    res.status(200).json(result);
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err});
   }
 }
 

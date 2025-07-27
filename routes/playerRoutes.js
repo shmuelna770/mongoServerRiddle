@@ -3,6 +3,6 @@ import { addPlayer } from '../controllers/playersController.js'
 
 const playerRoutes = express.Router()
 
-playerRoutes.post('/',addPlayer)
+playerRoutes.post('/player',addPlayer)
 
 export default playerRoutes

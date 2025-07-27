@@ -1,5 +1,5 @@
 import * as playerDal from '../DAL/playerDAL.js'
-
+//add player i supabaesDB
 export async function addPlayer(req, res) {
     try {
         const player = req.body
